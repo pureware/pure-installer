@@ -1,0 +1,11 @@
+vendor/
+node_modules
+var/
+/src/Resources/public/administration/
+/src/Resources/app/storefront/dist/
+.DS_Store
+.idea/
+.vscode/
+coverage/
+.phpunit.result.cache
+phpstan.neon
