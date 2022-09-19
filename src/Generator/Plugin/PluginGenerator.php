@@ -41,11 +41,15 @@ class PluginGenerator implements GeneratorInterface
                 'copyright' => '',
                 'composerDescriptionEn' => '', //@todo
                 'composerDescriptionDe' => '', // @todo
-                'shopwareVersion' => '>6.4.6.0 <6.5.0.0'//@todo
+                'phpVersion' => '~8.0', // @todo
+                'shopwareVersion' => '~6.4.15',//@todo call api and get latest https://api.github.com/repos/shopware/platform/releases/latest
+                'dockwareVersion' => 'latest',
+                'containerName' => 'shop_plugin'
             ]
         );
 
-        $generator = new DirectoryGenerator(getcwd() . DIRECTORY_SEPARATOR . $this->pluginName, $parser);
+        $pluginPath = getcwd() . DIRECTORY_SEPARATOR . $this->pluginName;
+        $generator = new DirectoryGenerator($pluginPath, $parser);
         if ($input->getOption('force')) {
             $generator->setForce(true);
         }
@@ -53,6 +57,14 @@ class PluginGenerator implements GeneratorInterface
         $directory = (new TreeBuilder())->buildTree(__DIR__ . '/../../Resources/skeleton/plugin', $this->pluginName);
 
         $generator->generate($directory);
+
+        $composerCommand = 'composer install --working-dir=' . $pluginPath;
+
+        $output = null;
+        $retval = null;
+        exec($composerCommand, $output, $retval);
+        exec('cd ' . $this->pluginName, $output, $retval);
+        echo "PURE installed composer dependencies";
 
 
         return Command::SUCCESS;
@@ -72,6 +84,6 @@ class PluginGenerator implements GeneratorInterface
 
         $this->namespace = $prefix . "\\" . $class;
 
-        $this->composerName = \strtolower($prefix) . "\\" . (new AsciiSlugger())->slug($class->snake());
+        $this->composerName = \strtolower($prefix) . "/" . (new AsciiSlugger())->slug($class->snake());
     }
 }
