@@ -1,0 +1,36 @@
+{
+  "name": "{{composerName}}",
+  "description": "{{composerDescriptionEn}}",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [],
+  "require": {
+    "shopware/core": ">6.4.6.0 <6.5.0.0",
+    "shopware/administration": ">6.4.6.0 <6.5.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dmf\\B2BOrderExport\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "{{namespace}}\\{{pluginName}}",
+    "copyright": "{{copyright}}",
+    "description": {
+      "de-DE": "{{pluginName}}",
+      "en-GB": "{{pluginName}}"
+    },
+    "manufacturerLink": {
+      "de-DE": "",
+      "en-GB": ""
+    },
+    "supportLink": {
+      "de-DE": "",
+      "en-GB": ""
+    },
+    "label": {
+      "de-DE": "{{composerDescriptionDe}}",
+      "en-GB": "{{composerDescriptionEn}}"
+    }
+  }
+}
