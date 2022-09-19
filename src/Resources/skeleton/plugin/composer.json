@@ -5,16 +5,18 @@
   "license": "proprietary",
   "authors": [],
   "require": {
-    "shopware/core": ">6.4.6.0 <6.5.0.0",
-    "shopware/administration": ">6.4.6.0 <6.5.0.0"
+    "php": "{{phpVersion}}",
+    "shopware/core": "{{shopwareVersion}}",
+    "shopware/administration": "{{shopwareVersion}}",
+    "shopware/storefront": "{{shopwareVersion}}"
   },
   "autoload": {
     "psr-4": {
-      "Dmf\\B2BOrderExport\\": "src/"
+      "{{namespace|replace({'\\': '\\\\'})}}\\": "src/"
     }
   },
   "extra": {
-    "shopware-plugin-class": "{{namespace}}\\{{pluginName}}",
+    "shopware-plugin-class": "{{namespace|replace({'\\': '\\\\'})}}\\{{pluginName}}",
     "copyright": "{{copyright}}",
     "description": {
       "de-DE": "{{pluginName}}",
