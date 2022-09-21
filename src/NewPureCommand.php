@@ -24,6 +24,9 @@ class NewPureCommand extends Command
             )
             ->addOption('pluginName', 'p', InputArgument::OPTIONAL, 'The name of a plugin. Only used if type is plugin', null)
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Override files. Be careful when using!')
+            ->addOption('workingDir', null, InputOption::VALUE_OPTIONAL, 'The path were you want to create the new plugin', null)
+            ->addOption('git', null, InputOption::VALUE_NONE, 'Initialize a git repo and first commit. Only a remote url have to be set.')
+            ->addOption('branch', null, InputOption::VALUE_OPTIONAL, 'Init branch name for git', 'main')
             ->setDescription('Create an new Shopware project or plugin with a ready to use boilerplate.');
         parent::configure();
     }
