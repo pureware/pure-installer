@@ -23,6 +23,7 @@ class NewPureCommand extends Command
                 'Choose between plugin or project'
             )
             ->addOption('pluginName', 'p', InputArgument::OPTIONAL, 'The name of a plugin. Only used if type is plugin', null)
+            ->addOption('shopwareVersion', 's', InputArgument::OPTIONAL, sprintf('Shopware version i.e. %s. If not set the latest Shopware tag will be used', PluginGenerator::DEFAULT_VERSION), null)
             ->addOption('force', 'f', InputOption::VALUE_NONE, 'Override files. Be careful when using!')
             ->addOption('workingDir', null, InputOption::VALUE_OPTIONAL, 'The path were you want to create the new plugin', null)
             ->addOption('git', null, InputOption::VALUE_NONE, 'Initialize a git repo and first commit. Only a remote url have to be set.')
