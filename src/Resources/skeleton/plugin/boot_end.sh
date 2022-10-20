@@ -1,6 +1,6 @@
 #!/usr/bin/php
 
-cd /var/www/html;
+cd /var/www/html || exit;
 
 /usr/bin/php bin/console plugin:refresh;
 

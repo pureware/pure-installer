@@ -9,3 +9,4 @@ var/
 coverage/
 .phpunit.result.cache
 phpstan.neon
+docker-compose.override.yml

@@ -4,11 +4,18 @@
   "type": "shopware-platform-plugin",
   "license": "proprietary",
   "authors": [],
+  "repositories": [
+    {
+      "type": "path",
+      "url": "~/dev/private/pure/pureware-cli"
+    }
+  ],
   "require": {
     "php": "{{phpVersion}}",
     "shopware/core": "{{shopwareVersion}}",
     "shopware/administration": "{{shopwareVersion}}",
-    "shopware/storefront": "{{shopwareVersion}}"
+    "shopware/storefront": "{{shopwareVersion}}",
+    "pureware/pureware-cli": "@dev"
   },
   "autoload": {
     "psr-4": {
